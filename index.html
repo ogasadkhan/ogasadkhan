@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asadullah Khan - AI Engineer specializing in LLMs, RAG, and Full-Stack Development. Building intelligent solutions with Python, FastAPI, and modern AI technologies.">
+    <meta name="keywords" content="AI Engineer, LLM, RAG, Python Developer, FastAPI, Machine Learning, NLP">
+    <meta name="author" content="Asadullah Khan">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Asadullah Khan - AI Engineer">
+    <meta property="og:description" content="AI Engineer specializing in LLMs, RAG, and Full-Stack Development">
+    <meta property="og:url" content="https://ogasadkhan.github.io">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asadullah Khan - AI Engineer">
+    <meta name="twitter:description" content="AI Engineer specializing in LLMs, RAG, and Full-Stack Development">
+    
+    <title>Asadullah Khan - AI Engineer Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-primary: #0891b2;
+            --accent-secondary: #0ea5e9;
+            --accent-hover: #0c7a94;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-primary: #14b8a6;
+            --accent-secondary: #06b6d4;
+            --accent-hover: #0d9488;
+            --border-color: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-card);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(20deg);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent-primary);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            padding: 2rem;
+            color: white;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--accent-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* CV Section */
+        .cv-container {
+            text-align: center;
+        }
+
+        .cv-embed {
+            width: 100%;
+            max-width: 900px;
+            height: 600px;
+            margin: 2rem auto;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+            color: var(--accent-primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-link i {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cv-embed {
+                height: 500px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">AK</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Asadullah Khan</h1>
+            <h2>AI Engineer & Full-Stack Developer</h2>
+            <p>Specializing in LLMs, RAG systems, and building intelligent solutions with Python, FastAPI, and modern AI technologies. Passionate about creating impactful applications that solve real-world problems.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> View Projects
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a passionate AI Engineer based in Karachi, Pakistan, currently working at Intrapreneur as a Junior Software Engineer. I specialize in building intelligent systems using Large Language Models, RAG architectures, and modern web technologies.</p>
+                <p>My journey in tech has been driven by curiosity and a desire to create solutions that make a difference. From developing AI-powered teaching assistants to automating workflows, I love tackling complex challenges and turning ideas into reality.</p>
+                <p>I'm currently pursuing my Bachelor's in Information Technology at the University of Sindh, with a focus on AI and machine learning applications in real-world scenarios.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Professionals Trained</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-python"></i></div>
+                <div class="skill-name">Python</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                <div class="skill-name">LLMs & NLP</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                <div class="skill-name">RAG Systems</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-server"></i></div>
+                <div class="skill-name">FastAPI</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-react"></i></div>
+                <div class="skill-name">React</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-database"></i></div>
+                <div class="skill-name">SQL</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                <div class="skill-name">Docker</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                <div class="skill-name">AWS</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-link"></i></div>
+                <div class="skill-name">Langchain</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
+                <div class="skill-name">Microservices</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                <div class="skill-name">Git</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                <div class="skill-name">CI/CD</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-project="ehgpt">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 class="project-title">EH GPT</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">AI-powered student assistant using LLMs and RAG that improved response quality by 40% with stateful context retention.</p>
+                    <div class="project-tags">
+                        <span class="tag">LLMs</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Langchain</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="sql-agent">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="project-title">SQL Natural Language Agent</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">LangChain-based agent that converts natural language queries into executable SQL, boosting analytics adoption by 60%.</p>
+                    <div class="project-tags">
+                        <span class="tag">NLP</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Langchain</span>
+                        <span class="tag">FastAPI</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="teaching-assistant">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="project-title">Robotic Teaching Assistant</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">LLM-based robotic assistant with RAG, STT, and TTS capabilities achieving 85%+ voice response accuracy for educational support.</p>
+                    <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">STT/TTS</span>
+                        <span class="tag">Robotics</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="whatsapp-mcp">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3 class="project-title">WhatsApp MCP</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Automated reply system with custom fine-tuned LLM and RAG for context-aware WhatsApp interactions.</p>
+                    <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Fine-tuning</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="linkedin-generator">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fab fa-linkedin"></i></div>
+                    <h3 class="project-title">LinkedIn Content Generator</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Automated social media post generator using n8n and GPT-4 integration, eliminating 90% of manual content creation effort.</p>
+                    <div class="project-tags">
+                        <span class="tag">GPT-4</span>
+                        <span class="tag">n8n</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Marketing</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv">
+        <h2 class="section-title">My Resume</h2>
+        <div class="cv-container">
+            <iframe class="cv-embed" src="assets/resume.pdf" type="application/pdf">
+                <p>Your browser doesn't support embedded PDFs. <a href="assets/resume.pdf" download>Download my CV</a> instead.</p>
+            </iframe>
+            <a href="assets/resume.pdf" download class="btn btn-primary" style="margin-top: 1rem;">
+                <i class="fas fa-download"></i> Download CV
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+
+            <div class="contact-links">
+                <a href="mailto:asadullahkhan0401@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>asadullahkhan0401@gmail.com</span>
+                </a>
+                <a href="https://github.com/ogasadkhan" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/asadullahkhan0401/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="tel:+923213615093" class="contact-link">
+                    <i class="fas fa-phone"></i>
+                    <span>0321-3615093</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Asadullah Khan. All rights reserved.</p>
+        <p>Built with passion and modern web technologies</p>
+    </footer>
+
+    <!-- Modal for Project Details -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Project Modal
+        const modal = document.getElementById('projectModal');
+        const modalBody = document.getElementById('modalBody');
+        const modalClose = document.getElementById('modalClose');
+
+        const projectDetails = {
+            'ehgpt': {
+                title: 'EH GPT - AI Student Assistant',
+                description: 'A comprehensive AI-powered educational assistant that leverages Large Language Models and Retrieval-Augmented Generation (RAG) to provide contextually relevant responses to students.',
+                features: [
+                    'Stateful context retention for personalized learning experiences',
+                    '40% improvement in response quality compared to baseline models',
+                    'Integration with educational content databases',
+                    'Real-time query processing and response generation',
+                    'Multi-turn conversation handling'
+                ],
+                technologies: ['Python', 'Langchain', 'OpenAI API', 'RAG', 'FastAPI', 'Redis'],
+                impact: 'Improved student engagement and reduced response time for common educational queries',
+                github: '#'
+            },
+            'sql-agent': {
+                title: 'SQL Natural Language Agent',
+                description: 'An intelligent agent that bridges the gap between non-technical users and database analytics by converting natural language queries into executable SQL statements.',
+                features: [
+                    'Natural language to SQL conversion using LangChain',
+                    '60% increase in analytics adoption by non-technical staff',
+                    'Support for complex queries including joins, aggregations, and filters',
+                    'Query validation and safety checks',
+                    'Interactive dashboard integration'
+                ],
+                technologies: ['Python', 'Langchain', 'MySQL', 'FastAPI', 'SQLAlchemy'],
+                impact: 'Democratized data access and empowered business users to make data-driven decisions',
+                github: '#'
+            },
+            'teaching-assistant': {
+                title: 'Robotic Teaching Assistant',
+                description: 'An innovative LLM-based robotic system designed to assist in educational environments with voice interaction capabilities and intelligent content delivery.',
+                features: [
+                    '85%+ voice response accuracy using STT and TTS',
+                    'RAG-based knowledge retrieval for accurate answers',
+                    'Multi-modal interaction (voice, text, visual)',
+                    'Personalized learning path recommendations',
+                    'Real-time educational content adaptation'
+                ],
+                technologies: ['Python', 'LLM', 'RAG', 'Whisper STT', 'OpenAI TTS', 'Robotics Framework'],
+                impact: 'Enhanced classroom engagement and provided 24/7 educational support',
+                github: '#'
+            },
+            'whatsapp-mcp': {
+                title: 'WhatsApp MCP - Smart Reply System',
+                description: 'An automated messaging system that uses fine-tuned language models and RAG to provide context-aware responses on WhatsApp.',
+                features: [
+                    'Custom fine-tuned LLM for domain-specific responses',
+                    'RAG integration for contextual information retrieval',
+                    'Multi-language support',
+                    'Automated conversation flow management',
+                    'Analytics and conversation insights'
+                ],
+                technologies: ['Python', 'Fine-tuned LLM', 'RAG', 'WhatsApp API', 'FastAPI'],
+                impact: 'Reduced response time by 80% and improved customer satisfaction',
+                github: '#'
+            },
+            'linkedin-generator': {
+                title: 'LinkedIn Content Generator',
+                description: 'An automated content creation pipeline that generates engaging LinkedIn posts using GPT-4 and workflow automation tools.',
+                features: [
+                    '90% reduction in manual content creation effort',
+                    'AI-powered content ideation and drafting',
+                    'Automated posting schedule',
+                    'Content performance analytics',
+                    'Brand voice consistency'
+                ],
+                technologies: ['GPT-4', 'n8n', 'LinkedIn API', 'Python', 'Automation'],
+                impact: 'Increased posting consistency and engagement rates',
+                github: '#'
+            }
+        };
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('.project-link')) {
+                    e.preventDefault();
+                }
+                const projectId = card.getAttribute('data-project');
+                const project = projectDetails[projectId];
+                
+                if (project) {
+                    modalBody.innerHTML = `
+                        <h2 style="color: var(--accent-primary); margin-bottom: 1rem;">${project.title}</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">${project.description}</p>
+                        
+                        <h3 style="margin-bottom: 1rem;">Key Features</h3>
+                        <ul style="color: var(--text-secondary); margin-bottom: 1.5rem; padding-left: 1.5rem;">
+                            ${project.features.map(feature => `<li style="margin-bottom: 0.5rem;">${feature}</li>`).join('')}
+                        </ul>
+                        
+                        <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                            ${project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                        </div>
+                        
+                        <h3 style="margin-bottom: 1rem;">Impact</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">${project.impact}</p>
+                        
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="${project.github}" class="btn btn-primary" style="text-decoration: none;">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    `;
+                    modal.classList.add('active');
+                }
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Skill card hover effect
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            // Formspree will handle the actual submission
+            // You can add custom success/error handling here if needed
+        });
+    </script>
+</body>
+</html>
